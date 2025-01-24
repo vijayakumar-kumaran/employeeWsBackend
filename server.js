@@ -11,7 +11,12 @@ const notificationRoutes = require('./routes/notification_routes');
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://empworkspace.onrender.com', // Frontend domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
+  credentials: true, // Include credentials like cookies
+};
+
 app.use(express.json()); // For parsing JSON bodies
 
 // Connect to MongoDB
