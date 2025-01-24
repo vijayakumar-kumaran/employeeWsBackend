@@ -11,11 +11,11 @@ const notificationRoutes = require('./routes/notification_routes');
 const app = express();
 
 // Middleware
-const corsOptions = {
-  origin: 'https://empworkspace.onrender.com', // Frontend domain
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
-  credentials: true, // Include credentials like cookies
-};
+app.use(cors({
+  origin: ['https://empworkspace.onrender.com'], // Allow requests from your deployed frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  credentials: true, // Allow cookies or authorization headers
+}));
 
 app.use(express.json()); // For parsing JSON bodies
 
